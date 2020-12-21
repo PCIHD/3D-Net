@@ -25,6 +25,7 @@ def train(net, trainloader, optimizer, criterion, device, NUM_EPOCHS):
                 loss.backward()
                 optimizer.step()
                 running_loss += loss.item()
+                print("Learning Loss",running_loss)
                 #plot3d(outputs[0].detach().cpu().numpy())
 
 
