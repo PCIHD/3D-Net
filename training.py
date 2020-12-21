@@ -6,12 +6,14 @@ def train(net, trainloader, optimizer, criterion, device, NUM_EPOCHS):
     net = net.to(device)
     criterion = criterion.to(device)
     train_loss = []
+    print("Beginning training")
     for epoch in range(NUM_EPOCHS):
         with tqdm(trainloader, unit='batch') as tepoch:
             running_loss = 0.0
             for (image, image_3d) in tepoch:
 
                 img = image.to(device).float()
+                print(img.shape)
 
                 image_3d = image_3d.to(device)
 
@@ -19,7 +21,7 @@ def train(net, trainloader, optimizer, criterion, device, NUM_EPOCHS):
 
                 optimizer.zero_grad()
                 outputs = net(img)
-                loss = criterion(outputs, image_3d)
+                loss = criterion(image_3d, outputs)
                 loss.backward()
                 optimizer.step()
                 running_loss += loss.item()

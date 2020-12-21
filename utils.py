@@ -72,5 +72,4 @@ def rgb_data_transform(data):
         data_t.append(data[i].reshape(16, 16, 16))
     return np.asarray(data_t, dtype=np.float32)
 
-def save_model(net, path)
-    torch.save(net, path)
+
