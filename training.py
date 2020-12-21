@@ -13,7 +13,7 @@ def train(net, trainloader, optimizer, criterion, device, NUM_EPOCHS):
             for (image, image_3d) in tepoch:
 
                 img = image.to(device).float()
-                
+
 
                 image_3d = image_3d.to(device)
 
@@ -25,7 +25,7 @@ def train(net, trainloader, optimizer, criterion, device, NUM_EPOCHS):
                 loss.backward()
                 optimizer.step()
                 running_loss += loss.item()
-                plot3d(outputs[0].detach().cpu().numpy())
+                #plot3d(outputs[0].detach().cpu().numpy())
 
 
 
