@@ -31,7 +31,7 @@ def train(net, trainloader, optimizer, criterion, device, NUM_EPOCHS):
         train_loss.append(loss)
         print('Epoch {} of {}, Train Loss: {:.3f}'.format(
             epoch + 1, NUM_EPOCHS, loss))
-        save(net,"./model/"+'Epoch {} of {}, Train Loss: {:.3f}'.format(
+        save(net,"./model/"+'Epoch{}of{},TrainLoss:{:.3f}'.format(
             epoch + 1, NUM_EPOCHS, loss))
         save(net,"./model/latest")
 
