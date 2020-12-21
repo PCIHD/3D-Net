@@ -54,17 +54,19 @@ class CNN_Autoencoder(nn.Module):
         self.decoder = nn.Sequential(
 
             ConvTranspose3d(8, 16, kernel_size=3, stride=1),
-            nn.Upsample(scale_factor=(2, 3.5, 2)),
+            nn.Upsample(scale_factor=(1, 1, 1)),
             nn.ReLU(inplace=True),
 
 
             ConvTranspose3d(16, 32, kernel_size=3, stride=1),
+            nn.Upsample(scale_factor=(1, 1, 1)),
             nn.ReLU(inplace=True),
             ConvTranspose3d(32, 48, kernel_size=3, stride=1),
+            nn.Upsample(scale_factor=(1.6, 2, 1.6)),
             nn.ReLU(inplace=True),
 
             ConvTranspose3d(48,1 , kernel_size=3, stride=1),
-            nn.ReLU(inplace=True),
+            #nn.ReLU(inplace=True),
 
 
 
@@ -78,7 +80,7 @@ class CNN_Autoencoder(nn.Module):
         x = x.view(x.shape[0],-1).view(x.shape[0],8,3,1,3)
         #print(x.shape)
         x = self.decoder(x)
-        print(x.shape)
+        #print(x.shape)
         return x
 
 
