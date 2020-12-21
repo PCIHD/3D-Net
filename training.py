@@ -13,7 +13,7 @@ def train(net, trainloader, optimizer, criterion, device, NUM_EPOCHS):
             for (image, image_3d) in tepoch:
 
                 img = image.to(device).float()
-                print(img.shape)
+                
 
                 image_3d = image_3d.to(device)
 
