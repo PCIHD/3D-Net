@@ -1,12 +1,15 @@
 from tqdm import tqdm
 from utils import plot3d
 from torch import save
+import os
 
 def train(net, trainloader, optimizer, criterion, device, NUM_EPOCHS):
     net = net.to(device)
     criterion = criterion.to(device)
     train_loss = []
     print("Beginning training")
+    if(not os.path.exists('./model/')):
+        os.mkdir('./model/')
     for epoch in range(NUM_EPOCHS):
         with tqdm(trainloader, unit='batch') as tepoch:
             running_loss = 0.0
