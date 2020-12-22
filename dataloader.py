@@ -1,6 +1,7 @@
 import  h5py
 import matplotlib.pyplot as plt
 import numpy as np
+import torch
 from torch.utils.data import Dataset
 
 from utils import load_mnist3d, load_mnist
@@ -25,7 +26,7 @@ class Dataset2d_3d(Dataset):
         x = x.reshape(1,16,16,16)
 
 
-        return x_2d.float(),x
+        return torch.from_numpy(x_2d).float(),x
 
 
     def map_label(self,index):
