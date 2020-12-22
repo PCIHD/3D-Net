@@ -25,7 +25,7 @@ class Dataset2d_3d(Dataset):
         x = x.reshape(1,16,16,16)
 
 
-        return x_2d,x
+        return x_2d.float(),x
 
 
     def map_label(self,index):

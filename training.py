@@ -15,7 +15,7 @@ def train(net, trainloader, optimizer, criterion, device, NUM_EPOCHS):
             running_loss = 0.0
             for (image, image_3d) in tepoch:
 
-                img = image.to(device).float()
+                img = image.to(device)
 
 
                 image_3d = image_3d.to(device)
